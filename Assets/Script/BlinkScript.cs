@@ -15,11 +15,11 @@ public class BlinkScript : MonoBehaviour
     {
         if (Input.GetKeyDown("space"))
         {
-            StartCoroutine(BlinkEff());
+            StartCoroutine(BlinkEff(blink));
         }
     }
 
-    IEnumerator BlinkEff()
+    public IEnumerator BlinkEff(GameObject blink)
     {
         blink.SetActive(true);
         yield return new WaitForSeconds(.2f);
