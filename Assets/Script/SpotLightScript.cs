@@ -10,6 +10,8 @@ public class SpotLightScript : MonoBehaviour
     public Vector2 turn;
     RaycastHit hit;
     public GameObject blink;
+    public GameObject hiObj;
+    private ChangeMatScript changeMatScript;
     private BlinkScript blinkObject;
     private float holdDownTime = 2;
     void Start()
@@ -25,7 +27,7 @@ public class SpotLightScript : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             holdDownTime -= Time.deltaTime;
-            Debug.Log(holdDownTime);
+            //Debug.Log(holdDownTime);
         }
         if (Input.GetMouseButtonUp(0)) 
         {
@@ -34,7 +36,7 @@ public class SpotLightScript : MonoBehaviour
         if (holdDownTime <= 0)
         {
             StartCoroutine(BlinkEff(blink));
-            DetectTags();
+            DetectChange();
             holdDownTime = 2;
         }
 
@@ -47,13 +49,17 @@ public class SpotLightScript : MonoBehaviour
         transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0);
     }
 
-    private void DetectTags()
+    private void DetectChange()
     {
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
         {
-            if(hit.collider.gameObject.tag == "Abnormal") 
+            //hiObj = hit.collider.gameObject;
+            if (hit.collider.gameObject.tag == "Abnormal") 
             {
                 Debug.Log("true");
+                changeMatScript = hit.collider.gameObject.GetComponent<ChangeMatScript>();             
+                hit.collider.gameObject.GetComponent<Renderer>().material = changeMatScript.defaultMat;
+                changeMatScript.changed = false;
             }
         }
     }
