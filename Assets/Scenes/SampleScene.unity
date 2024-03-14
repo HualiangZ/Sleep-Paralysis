@@ -616,6 +616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turn: {x: 0, y: 0}
   blink: {fileID: 425571699}
+  hiObj: {fileID: 0}
 --- !u!1 &747491357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,7 +1057,7 @@ GameObject:
   - component: {fileID: 1926846634}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Abnormal
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1163,6 +1164,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: ef79a32b3456f6046accf760bd61f978, type: 2}
   - {fileID: 2100000, guid: c77fa9e5608846d41819221ad27016f4, type: 2}
   defaultMat: {fileID: 2100000, guid: a49e8b6971ac02b4e8cb93982697f375, type: 2}
+  changed: 0
 --- !u!1 &2104755002
 GameObject:
   m_ObjectHideFlags: 0
