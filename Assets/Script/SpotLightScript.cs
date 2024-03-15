@@ -54,6 +54,7 @@ public class SpotLightScript : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
         {
             //hiObj = hit.collider.gameObject;
+            Debug.Log(hit.collider.gameObject.name);
             if (hit.collider.gameObject.tag == "Abnormal") 
             {
                 Debug.Log("true");
