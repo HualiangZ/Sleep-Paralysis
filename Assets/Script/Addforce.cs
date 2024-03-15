@@ -1,0 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Addforce : MonoBehaviour
+{
+    // Start is called before the first frame update
+    private Rigidbody rb;
+    //private GameObject self;
+    private Vector3 defultLocation;
+    public bool detected = false;
+    public bool change = false;
+    public int force;
+    public int rotateY;
+    void Start()
+    {
+        defultLocation = gameObject.transform.position;
+        rb = GetComponent<Rigidbody>();
+        //self = GetComponent<GameObject>();
+        
+        Invoke("AddForce", 2f);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void AddForce()
+    {
+        rb.AddForce(-transform.forward * force);
+        gameObject.tag = "Abnormal";
+        change = true;
+    }
+
+    public void Normal()
+    {
+        if(detected)
+        {
+            transform.position = defultLocation;
+            gameObject.transform.eulerAngles = new Vector3(0,rotateY, 0);
+            detected = false;
+            change = false;
+        }
+    }
+}

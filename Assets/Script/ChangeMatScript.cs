@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Xml.Linq;
 using UnityEngine;
 
 public class ChangeMatScript : MonoBehaviour
@@ -8,22 +10,21 @@ public class ChangeMatScript : MonoBehaviour
     public List<Material> materials = new List<Material>();
     public Material defaultMat;
     public bool changed = false;
+    public bool detected = false;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(ChanceOfChange());
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    IEnumerator ChanceOfChange()
+    public void ChanceOfChange()
     {
-        for (; ; )
-        {
             if (!changed)
             {
                 int i = UnityEngine.Random.Range(0, 10);
@@ -34,9 +35,16 @@ public class ChangeMatScript : MonoBehaviour
                     changed = true;
                 }
             }
-            yield return new WaitForSeconds(2f);
-        }
+    }
 
+    public void Normal()
+    {
+        if (detected)
+        {
+            gameObject.GetComponent<Renderer>().material = defaultMat;
+            detected = false;
+            changed = false;
+        }
     }
 
     void ChangeMat()

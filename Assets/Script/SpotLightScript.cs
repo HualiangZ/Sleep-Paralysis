@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
@@ -12,6 +13,7 @@ public class SpotLightScript : MonoBehaviour
     public GameObject blink;
     public GameObject hiObj;
     private ChangeMatScript changeMatScript;
+    private Addforce forceScript;
     private BlinkScript blinkObject;
     private float holdDownTime = 2;
     void Start()
@@ -58,9 +60,31 @@ public class SpotLightScript : MonoBehaviour
             if (hit.collider.gameObject.tag == "Abnormal") 
             {
                 Debug.Log("true");
-                changeMatScript = hit.collider.gameObject.GetComponent<ChangeMatScript>();             
-                hit.collider.gameObject.GetComponent<Renderer>().material = changeMatScript.defaultMat;
-                changeMatScript.changed = false;
+                try
+                {
+                    changeMatScript = hit.collider.gameObject.GetComponent<ChangeMatScript>();
+                    changeMatScript.detected = true;
+                    changeMatScript.Normal();
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError(e);
+                }
+
+                try
+                {
+                    forceScript = hit.collider.gameObject.GetComponent<Addforce>();
+                    forceScript.detected = true;
+                    forceScript.Normal();
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError(e);
+                }
+
+
+                /*                hit.collider.gameObject.GetComponent<Renderer>().material = changeMatScript.defaultMat;
+                                changeMatScript.changed = false;*/
             }
         }
     }
