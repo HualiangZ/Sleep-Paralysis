@@ -18,7 +18,7 @@ public class Addforce : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         //self = GetComponent<GameObject>();
         
-        Invoke("AddForce", 2f);
+        //Invoke("AddForce", 2f);
     }
 
     // Update is called once per frame
