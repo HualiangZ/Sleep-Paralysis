@@ -2877,6 +2877,18 @@ PrefabInstance:
       value: Fresh cola
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4cbff2744b2c2c040b9a4026b2ab32f8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4cbff2744b2c2c040b9a4026b2ab32f8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4cbff2744b2c2c040b9a4026b2ab32f8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4cbff2744b2c2c040b9a4026b2ab32f8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.776
       objectReference: {fileID: 0}
