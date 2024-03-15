@@ -40,6 +40,7 @@ public class Addforce : MonoBehaviour
         {
             transform.position = defultLocation;
             gameObject.transform.eulerAngles = new Vector3(0,rotateY, 0);
+            gameObject.tag = "Untagged";
             detected = false;
             change = false;
         }

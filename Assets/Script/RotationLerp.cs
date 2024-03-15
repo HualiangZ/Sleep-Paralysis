@@ -25,11 +25,13 @@ public class RotationLerp : MonoBehaviour
     {
         transform.position = new Vector3(5.98f,2.19f, 4.02f);
         transform.Rotate(0, 0, 0);
+        gameObject.tag = "Untagged";
         girl.SetActive(false);
     }
     void open () 
     {
         transform.Rotate(x, y, z);
+        gameObject.tag = "Abnormal";
         girl.SetActive(true);
     }
 }

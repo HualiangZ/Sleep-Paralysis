@@ -42,6 +42,7 @@ public class ChangeMatScript : MonoBehaviour
         if (detected)
         {
             gameObject.GetComponent<Renderer>().material = defaultMat;
+            gameObject.tag = "Untagged";
             detected = false;
             changed = false;
         }
