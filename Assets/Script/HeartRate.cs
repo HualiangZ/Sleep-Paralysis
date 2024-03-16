@@ -11,6 +11,8 @@ public class HeartRate : MonoBehaviour
     private int defultHeartRate = 60;
     private int maxHeartRate = 60;
     private int currentHeartRate = 60;
+    private int temp = 0;
+    public GameObject gameOver;
     GameObject[] allObjects;
     private void Awake()
     {
@@ -27,7 +29,10 @@ public class HeartRate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(temp > 180)
+        {
+            gameOver.SetActive(true);
+        }
     }
 
     IEnumerator Check() 
@@ -75,6 +80,7 @@ public class HeartRate : MonoBehaviour
     {
         for(; ; )
         {
+            temp = currentHeartRate + Random.Range(-2, 2);
             heart.text = (currentHeartRate + Random.Range(-2, 2)).ToString();
             yield return new WaitForSeconds(1f);
         }
