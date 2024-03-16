@@ -14,7 +14,7 @@ public class ChangeMatScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine(ChanceOfChange());
     }
 
     // Update is called once per frame
@@ -23,11 +23,13 @@ public class ChangeMatScript : MonoBehaviour
 
     }
 
-    public void ChanceOfChange()
+    public IEnumerator ChanceOfChange()
     {
-            if (!changed)
+        for(; ; )
+        {
+            if (gameObject.tag != "Abnormal")
             {
-                int i = UnityEngine.Random.Range(0, 10);
+                int i = UnityEngine.Random.Range(0, 100);
                 if (i <= 5)
                 {
                     ChangeMat();
@@ -35,6 +37,9 @@ public class ChangeMatScript : MonoBehaviour
                     changed = true;
                 }
             }
+            yield return new WaitForSeconds(5f);
+        }
+ 
     }
 
     public void Normal()

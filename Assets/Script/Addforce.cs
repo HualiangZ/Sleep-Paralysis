@@ -17,8 +17,8 @@ public class Addforce : MonoBehaviour
         defultLocation = gameObject.transform.position;
         rb = GetComponent<Rigidbody>();
         //self = GetComponent<GameObject>();
-        
-        //Invoke("AddForce", 2f);
+
+        StartCoroutine(AddForce());
     }
 
     // Update is called once per frame
@@ -27,11 +27,21 @@ public class Addforce : MonoBehaviour
         
     }
 
-    void AddForce()
+    IEnumerator AddForce()
     {
-        rb.AddForce(-transform.forward * force);
-        gameObject.tag = "Abnormal";
-        change = true;
+        for(; ; )
+        {
+            int rand = Random.Range(0, 100);
+            if(gameObject.tag != "Abnormal" && rand <=10)
+            {
+                rb.AddForce(-transform.forward * force);
+                gameObject.tag = "Abnormal";
+                change = true;
+            }
+            yield return new WaitForSeconds(5f);
+            
+        }
+       
     }
 
     public void Normal()

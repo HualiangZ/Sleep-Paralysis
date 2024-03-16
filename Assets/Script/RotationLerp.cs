@@ -5,14 +5,15 @@ using UnityEngine;
 public class RotationLerp : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Transform self;
+    private Vector3 defultLocation;
     public GameObject girl;
     public float x;
     public float y;
     public float z;
     void Start()
     {
-        open();
+        defultLocation = gameObject.transform.position;
+        StartCoroutine(Open());
     }
 
     // Update is called once per frame
@@ -21,17 +22,28 @@ public class RotationLerp : MonoBehaviour
 
     }
 
-    void close()
+    public void Close()
     {
-        transform.position = new Vector3(5.98f,2.19f, 4.02f);
-        transform.Rotate(0, 0, 0);
+        //transform.position = defultLocation;
+        transform.Rotate(-x, -y, -z);
         gameObject.tag = "Untagged";
         girl.SetActive(false);
     }
-    void open () 
+    IEnumerator Open() 
     {
-        transform.Rotate(x, y, z);
-        gameObject.tag = "Abnormal";
-        girl.SetActive(true);
+        for(; ; )
+        {
+            int rand = Random.Range(0, 100);
+            if(gameObject.tag != "Abnormal" && rand <= 5)
+            {
+                transform.Rotate(x, y, z);
+                gameObject.tag = "Abnormal";
+                girl.SetActive(true);
+            }
+            yield return new WaitForSeconds(10f);
+        }
+        
     }
+
+    
 }

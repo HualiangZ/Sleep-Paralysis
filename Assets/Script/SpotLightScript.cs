@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -14,6 +15,7 @@ public class SpotLightScript : MonoBehaviour
     public GameObject hiObj;
     private ChangeMatScript changeMatScript;
     private Addforce forceScript;
+    private RotationLerp door;
     private BlinkScript blinkObject;
     private float holdDownTime = 2;
     void Start()
@@ -65,6 +67,17 @@ public class SpotLightScript : MonoBehaviour
                     changeMatScript = hit.collider.gameObject.GetComponent<ChangeMatScript>();
                     changeMatScript.detected = true;
                     changeMatScript.Normal();
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError(e);
+                }
+
+                try
+                {
+                    door = hit.collider.gameObject.GetComponent<RotationLerp>();
+                    //door.detected = true;
+                    door.Close();
                 }
                 catch (Exception e)
                 {
