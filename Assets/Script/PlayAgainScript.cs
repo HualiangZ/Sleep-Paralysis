@@ -20,5 +20,6 @@ public class PlayAgainScript : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+        Debug.Log("1");
     }
 }
