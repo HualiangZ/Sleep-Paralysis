@@ -10,4 +10,15 @@ public class PlayAgainScript : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void Quitgame()
+    {
+        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene(1);
+    }
 }

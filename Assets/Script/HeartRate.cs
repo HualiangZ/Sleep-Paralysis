@@ -29,7 +29,7 @@ public class HeartRate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(temp > 180)
+        if(temp > 65)
         {
             gameOver.SetActive(true);
         }
