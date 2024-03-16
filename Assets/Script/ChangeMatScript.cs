@@ -27,6 +27,7 @@ public class ChangeMatScript : MonoBehaviour
     {
         for(; ; )
         {
+            int sec = UnityEngine.Random.Range(5, 10);
             if (gameObject.tag != "Abnormal")
             {
                 int i = UnityEngine.Random.Range(0, 100);
@@ -37,7 +38,7 @@ public class ChangeMatScript : MonoBehaviour
                     changed = true;
                 }
             }
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(sec);
         }
  
     }

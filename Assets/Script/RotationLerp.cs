@@ -33,6 +33,7 @@ public class RotationLerp : MonoBehaviour
     {
         for(; ; )
         {
+            int sec = Random.Range(10, 15);
             int rand = Random.Range(0, 100);
             if(gameObject.tag != "Abnormal" && rand <= 5)
             {
@@ -40,7 +41,7 @@ public class RotationLerp : MonoBehaviour
                 gameObject.tag = "Abnormal";
                 girl.SetActive(true);
             }
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(sec);
         }
         
     }

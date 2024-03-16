@@ -31,6 +31,7 @@ public class Addforce : MonoBehaviour
     {
         for(; ; )
         {
+            int sec = Random.Range(5, 10);
             int rand = Random.Range(0, 100);
             if(gameObject.tag != "Abnormal" && rand <=10)
             {
@@ -38,7 +39,7 @@ public class Addforce : MonoBehaviour
                 gameObject.tag = "Abnormal";
                 change = true;
             }
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(sec);
             
         }
        
