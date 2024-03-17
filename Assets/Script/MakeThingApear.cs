@@ -24,10 +24,10 @@ public class MakeThingApear : MonoBehaviour
         for (; ; )
         {
             
-            int sec = Random.Range(2, 2);
+            int sec = Random.Range(7, 12);
             yield return new WaitForSeconds(sec);
             int rand = Random.Range(0, 100);
-            if (gameObject.tag != "Abnormal" && rand <= 120)
+            if (gameObject.tag != "Abnormal" && rand <= 5)
             {          
                 ghost.gameObject.SetActive(true);
                 gameObject.tag = "Abnormal"; 
