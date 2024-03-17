@@ -22,8 +22,11 @@ public class Timer : MonoBehaviour
             timeLeft -= Time.deltaTime;
             updateTimer(timeLeft);
         }else
-        {           
+        {
+            
             SceneManager.LoadScene(3);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
             
     }

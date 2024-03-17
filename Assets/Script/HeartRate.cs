@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.Timeline.AnimationPlayableAsset;
 
 public class HeartRate : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class HeartRate : MonoBehaviour
     private void Awake()
     {
         allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     void Start()
     {
@@ -33,6 +36,8 @@ public class HeartRate : MonoBehaviour
         if(temp > 200)
         {
             SceneManager.LoadScene(2);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 

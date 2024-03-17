@@ -8,12 +8,14 @@ public class MoveForward : MonoBehaviour
     public GameObject target;
     public GameObject ghost;
     private Collider selfCollider;
+    private Vector3 defaultLocation;
     public bool detected = false;
     // Start is called before the first frame update
     void Start()
     {
         
         StartCoroutine(Appear());
+        defaultLocation = transform.position;
         selfCollider = GetComponent<Collider>();
         selfCollider.enabled = false;
 
@@ -40,7 +42,8 @@ public class MoveForward : MonoBehaviour
         if (target.transform.position == transform.position)
         {
             gameObject.tag = "Untagged";
-            transform.position = new Vector3(-0.21f, 1.248f, 5.7f);
+            //transform.position = new Vector3(-0.21f, 1.248f, 5.7f);
+            transform.position = defaultLocation;
             detected = false;
             ghost.gameObject.SetActive(false);
             selfCollider.enabled = false;   
@@ -52,15 +55,16 @@ public class MoveForward : MonoBehaviour
     {
         for (; ; )
         {
-            int sec = Random.Range(10, 20);
+            int sec = Random.Range(5, 10);
+            yield return new WaitForSeconds(sec);
             int rand = Random.Range(0, 100);
-            if(gameObject.tag != "Abnormal" && rand <= 3)
+            if(gameObject.tag != "Abnormal" && rand <= 5)
             {
                 ghost.gameObject.SetActive(true);
                 gameObject.tag = "Abnormal";
                 selfCollider.enabled = true;
             }
-            yield return new WaitForSeconds(sec);
+            
             
         }
         
