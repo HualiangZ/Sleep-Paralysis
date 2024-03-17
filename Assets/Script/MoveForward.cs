@@ -58,7 +58,7 @@ public class MoveForward : MonoBehaviour
             int sec = Random.Range(5, 10);
             yield return new WaitForSeconds(sec);
             int rand = Random.Range(0, 100);
-            if(gameObject.tag != "Abnormal" && rand <= 3)
+            if(gameObject.tag != "Abnormal" && rand <= 4)
             {
                 ghost.gameObject.SetActive(true);
                 gameObject.tag = "Abnormal";
