@@ -13,7 +13,7 @@ public class PlayAgainScript : MonoBehaviour
 
     public void Quitgame()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
 

@@ -68,11 +68,11 @@ public class HeartRate : MonoBehaviour
             //heart.text = count.ToString();
             if (currentHeartRate < maxHeartRate)
             {
-                currentHeartRate += 3;
+                currentHeartRate += 10;
             }
             else if(currentHeartRate > maxHeartRate)
             {
-                currentHeartRate -= 3;
+                currentHeartRate -= 10;
             }
             else
             {
@@ -86,7 +86,7 @@ public class HeartRate : MonoBehaviour
     {
         for(; ; )
         {
-            temp = currentHeartRate + Random.Range(-2, 2);
+            temp = currentHeartRate + Random.Range(-5, 5);
             heart.text = (currentHeartRate + Random.Range(-2, 2)).ToString();
             yield return new WaitForSeconds(1f);
         }
