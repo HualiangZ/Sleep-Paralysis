@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HeartRate : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class HeartRate : MonoBehaviour
     {
         if(temp > 200)
         {
-            gameOver.SetActive(true);
+            SceneManager.LoadScene(2);
         }
     }
 

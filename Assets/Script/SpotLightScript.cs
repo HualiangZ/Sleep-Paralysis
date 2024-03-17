@@ -16,6 +16,7 @@ public class SpotLightScript : MonoBehaviour
     private ChangeMatScript changeMatScript;
     private Addforce forceScript;
     private RotationLerp door;
+    private MoveForward ghost;
     private BlinkScript blinkObject;
     private float holdDownTime = 2;
     void Start()
@@ -89,6 +90,16 @@ public class SpotLightScript : MonoBehaviour
                     forceScript = hit.collider.gameObject.GetComponent<Addforce>();
                     forceScript.detected = true;
                     forceScript.Normal();
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError(e);
+                }
+                try
+                {
+                    ghost = hit.collider.gameObject.GetComponent<MoveForward>();
+                    ghost.detected = true;
+                    ghost.Normal();
                 }
                 catch (Exception e)
                 {
